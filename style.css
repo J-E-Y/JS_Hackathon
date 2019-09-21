@@ -1,20 +1,24 @@
 #template {
     display: grid;
+    grid-template-columns:repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     /* grid-template-columns: 40px 1fr 2fr; */
 }
 
-#idMenu,
-#idPrice {
-    display: grid;
-    grid-template-rows: 40px 1fr 2fr;
-    
+#idMenu{
+    grid-area: 1/1/2/2;
+    border: 1px solid black;
 }
 
-#idMenu {
-    border: 1px solid red;
+#idPrice{
+    grid-area: 1/2/2/3;
+    border: 1px solid black;
 }
-
-#idPrice {
-    border: 1px solid red;
+#idSetMenu{
+    grid-area: 2/1/3/2;
+    border: 1px solid black;
 }
-
+#idOption{
+    grid-area: 3/1/4/2;
+    border: 1px solid black;
+}
