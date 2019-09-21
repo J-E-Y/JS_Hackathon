@@ -1,20 +1,56 @@
 #template {
     display: grid;
-    /* grid-template-columns: 40px 1fr 2fr; */
-}
-
-#idMenu,
-#idPrice {
-    display: grid;
-    grid-template-rows: 40px 1fr 2fr;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 2em;
     
 }
 
-#idMenu {
-    border: 1px solid red;
+
+.box1 {
+    background: #eee;
+    grid-column:1;
+    grid-row:1/7;
+    
 }
 
-#idPrice {
-    border: 1px solid red;
+
+
+.box2 {
+    background: #eee;
+    grid-column:1;
+    grid-row:7/10;
+
+    
 }
 
+
+/* opt */
+.box3 {
+    /* display: none; */
+    background: #eee;
+
+   
+    
+}
+
+    
+
+.box4 {
+    background: #eee;
+    grid-row:1/4;
+    grid-column:2;
+    
+}
+
+
+.box5 {
+    background: #eee;
+    /* 4 ==>> 위에 길이 조정 14==>밑에 길이 조정 */
+    grid-row:4/10;  
+    
+
+    
+    
+
+    
+}
