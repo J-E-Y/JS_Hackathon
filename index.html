@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+    <div id="template">
+
+    <!-- 0. Title
+    <div id="idTitle">체심도 스리랑카 카페</div> -->
+        
+
+    <!-- 1. Menu -->
+    <div id="idMenu"> Menu
+    <ol class="menuTitle"> Beverage
+        <li class="menuContent">
+            <span class="menuName">아메리카노</span>
+            <span class="menuPrice">1000</span>
+        </li>
+        <li class="menuContent">
+            <span class="menuName">라떼</span>
+            <span class="menuPrice">2500</span>
+        </li>
+        <li class="menuContent">
+            <span class="menuName">맥주</span>
+            <span class="menuPrice">3000</span>
+        </li>
+    </ol>
+
+    <ol class="menuTitle"> Food
+        <li class="menuContent">
+            <span class="menuName">나시고랭</span>
+            <span class="menuPrice">8000</span>
+        </li>
+        <li class="menuContent">
+            <span class="menuName">미고랭</span>
+            <span class="menuPrice">8000</span>
+        </li>
+        <li class="menuContent">
+            <span class="menuName">사떼</span>
+            <span class="menuPrice">5000</span>
+        </li>
+    </ol>
+
+    <ol class="menuTitle"> Dessert
+        <li class="menuContent">
+            <span class="menuName">티라미수</span>
+            <span class="menuPrice">5600</span>
+        </li>
+        <li class="menuContent">
+            <span class="menuName">와플</span>
+            <span class="menuPrice">4000</span>
+        </li>
+        <li class="menuContent">
+            <span class="menuName">아이스크림</span>
+            <span class="menuPrice">2500</span>
+        </li>
+    </ol>
+    </div>
+
+    <!-- 1-1. Set. -->
+    <div id="idSetMenu">Set Menu-------------------------------------------------------------</div>
+
+    <!-- 1-2. Opt. -->
+    <div id="idOption">Option
+    <ol class="optMenu"> Beverage
+        <li class="optName">
+            Hot +0
+            <input class="optCheck" type="checkbox">
+            Cold +500
+            <input class="optCheck" type="checkbox">
+        </li>
+        <li class="optName">
+            샷추가(+1) +500
+            <input class="optCheck" type="checkbox">
+            샷추가(+2) +1000
+            <input class="optCheck" type="checkbox">
+        </li>
+        <li class="optName">
+            맥주주문시 감자튀김 +3000
+            <input class="optCheck" type="checkbox">
+        </li>
+    </ol>
+    
+    <ol class="optMenu"> Food
+        <li class="optName">
+            곱빼기 +1000
+            <input class="optCheck" type="checkbox">
+        </li>
+        <li class="optName">
+            고수추가 +0
+            <input class="optCheck" type="checkbox">
+        </li>
+    </ol>
+    </div>
+    <!-- 2. Price -->
+    <div id="idPrice">Price
+
+    <!-- 주문내역 -->
+    <div class="orderList 1">주문내역
+
+    <div class="orderBorder">
+        <ul class="orderMain"> 아메리카노
+            <li class="orderOpt">샷추가(+1)</li>
+            <li class="orderOpt">Cold</li>
+        </ul>
+    </div>
+
+    <div class="orderBorder">
+        <ul class="orderMain"> 나시고랭
+            <li class="orderOpt">곱빼기</li>
+            <li class="orderOpt">고수추가</li>
+        </ul>
+    </div>
+
+    </div>
+    <!-- 수량 -->
+    <div class="orderList 2">수량
+
+    <div class="orderCount">1</div>
+    <div class="orderCount">1</div>
+
+    </div>
+
+    <!-- 가격 -->
+    <div class="orderList 3">가격
+
+    <div class="orderPrice">2000</div>
+    <div class="orderPrice">9000</div>
+
+    </div>
+
+    <!-- 총가격 -->
+    <div class="orderList 4">총가격
+
+    <div class="totalPrice">11000</div>
+    
+    </div>
+    
+    </div>
+
+    <!-- 3. Cal. -->
+    <div id="Cal">Cal
+
+    <button class="calBtn">현금</button>
+    <button class="calBtn">카드</button>
+
+    </div>
+
+</div>
+
+</body>
+</html>

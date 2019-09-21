@@ -1,0 +1,20 @@
+#template {
+    display: grid;
+    /* grid-template-columns: 40px 1fr 2fr; */
+}
+
+#idMenu,
+#idPrice {
+    display: grid;
+    grid-template-rows: 40px 1fr 2fr;
+    
+}
+
+#idMenu {
+    border: 1px solid red;
+}
+
+#idPrice {
+    border: 1px solid red;
+}
+
