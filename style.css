@@ -1,8 +1,7 @@
 #template {
     display: grid;
-<<<<<<< HEAD
     grid-template-columns: 2fr 1fr;
-    grid-gap: 2em;
+    grid-gap: 1em;
     
 }
 
@@ -29,53 +28,20 @@
 .box3 {
     /* display: none; */
     background: #eee;
-
-   
-    
 }
 
     
 
 .box4 {
     background: #eee;
-    grid-row:1/4;
+    grid-row:1/7;
     grid-column:2;
     
 }
 
-
 .box5 {
     background: #eee;
     /* 4 ==>> 위에 길이 조정 14==>밑에 길이 조정 */
-    grid-row:4/10;  
-    
-
-    
-    
-
+    grid-row:7/10;  
     
 }
-=======
-    grid-template-columns:repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    /* grid-template-columns: 40px 1fr 2fr; */
-}
-
-#idMenu{
-    grid-area: 1/1/2/2;
-    border: 1px solid black;
-}
-
-#idPrice{
-    grid-area: 1/2/2/3;
-    border: 1px solid black;
-}
-#idSetMenu{
-    grid-area: 2/1/3/2;
-    border: 1px solid black;
-}
-#idOption{
-    grid-area: 3/1/4/2;
-    border: 1px solid black;
-}
->>>>>>> b15198d230b04b448b629eb92624af218e5e4037
