@@ -37,7 +37,8 @@
     grid-row:1/7;
     grid-column:2;
     display : grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: 200px 2fr 2fr;
+
     grid-gap: 2em;
     
 }
@@ -49,16 +50,36 @@
     
 }
 
-.box4 > div {
-    border: 2px;
-}
-
-
-
+/* display 의 속성값이 flex 면 block 의 요소를 해제 할수 있다.  */
 .orderList4 {
-    grid-column:1;
-    grid-row:2/2;
+    
+    display: flex; 
+    grid-column: 1;
+    padding-left: 64px;
+    }
 
 
+.orderCount {
+    
+    padding:20px;
+    padding-left: 14px;
+  
+}
+
+
+.orderPrice {
+    
+    
+    padding:20px;
+    padding-left: 0;
+   
+  
 
 }
+
+
+.totalPrice{
+
+    padding-left: 25px;
+}
+
