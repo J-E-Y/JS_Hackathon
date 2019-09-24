@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="POSDATA.js".js></script>
+
 </head>
 <body>
     <div id="template">
@@ -13,53 +15,53 @@
     <!-- 0. Title
     <div id="idTitle">체심도 스리랑카 카페</div> -->
         
-
+    
     <!-- 1. Menu -->
-    <div id="idMenu" class = "box1"> Menu
-    <ol class="menuTitle"> Beverage
+    <div id="idMenu" class = "box1"> <div class = middleTitle>Menu</div>
+    <ul class="menuTitle bev"> Beverage
         <li class="menuContent">
-            <span class="menuName">아메리카노</span>
+            <div class = 'menuHover'><image class = 'foodImg' src = "americano.jpg"></image><div class="menuName">아메리카노</div></div>
             <span class="menuPrice">1000</span>
         </li>
         <li class="menuContent">
-            <span class="menuName">라떼</span>
+            <div class = 'menuHover'><image class = 'foodImg' src = "latte.jpg"></image><div class="menuName">라떼</div></div>
             <span class="menuPrice">2500</span>
         </li>
         <li class="menuContent">
-            <span class="menuName">맥주</span>
+            <div class = 'menuHover'><image class = 'foodImg' src = "beer.jpg"></image><div class="menuName">맥주</div></div>
             <span class="menuPrice">3000</span>
         </li>
-    </ol>
+    </ul>
 
-    <ol class="menuTitle"> Food
+    <ul class="menuTitle food"> Food
         <li class="menuContent">
-            <span class="menuName">나시고랭</span>
+            <div class = 'menuHover'><image class = 'foodImg' src = "나시고랭.jpg"></image><div class="menuName">나시고랭</div></div>
             <span class="menuPrice">8000</span>
         </li>
         <li class="menuContent">
-            <span class="menuName">미고랭</span>
+            <div class = 'menuHover'><image class = 'foodImg' src = "미고렝.jpg"></image><div class="menuName">미고랭</div></div>
             <span class="menuPrice">8000</span>
         </li>
         <li class="menuContent">
-            <span class="menuName">사떼</span>
+            <div class = 'menuHover'><image class = 'foodImg' src = "사떼.gif"></image><div class="menuName">사떼</div></div>
             <span class="menuPrice">5000</span>
         </li>
-    </ol>
+    </ul>
 
-    <ol class="menuTitle"> Dessert
+    <ul class="menuTitle Dessert"> Dessert
         <li class="menuContent">
-            <span class="menuName">티라미수</span>
+            <div class = 'menuHover'><image class = 'foodImg' src = "티라미수.jpg"></image><div class="menuName">티라미수</div></div>
             <span class="menuPrice">5600</span>
         </li>
         <li class="menuContent">
-            <span class="menuName">와플</span>
+            <div class = 'menuHover'><image class = 'foodImg' src = "와플.jpg"></image><div class="menuName">와플</div></div>
             <span class="menuPrice">4000</span>
         </li>
         <li class="menuContent">
-            <span class="menuName">아이스크림</span>
+            <div class = 'menuHover'><image class = 'foodImg' src = "아이스크림.jpg"></image><div class="menuName">아이스크림</div></div>
             <span class="menuPrice">2500</span>
         </li>
-    </ol>
+    </ul>
     </div>
 
     <!-- 1-1. Set. -->
@@ -97,51 +99,41 @@
         </li>
     </ol>
     </div>
-    <!-- 2. Price -->
-    <div id="idPrice" class = "box4">
 
-    <!-- 주문내역 -->
-    <div class="orderList1">주문내역
 
-    <div class="orderBorder">
-        <ul class="orderMain"> 아메리카노
-            <li class="orderOpt">샷추가(+1)</li>
-            <li class="orderOpt">Cold</li>
-        </ul>
-    </div>
+<!-- 2. Price -->
+<div id="idPrice" class = "box4">
+        <!-- 주문내역 -->
+        <div id="orderList1">주문내역
+        <template id ="temList1">
+            <div class="orderMain"> 아메리카노</div>
+        </template>
+        </div>
+        <!-- 수량 -->
+        <div id="orderList2" class = "box3">수량
+        <template id = "temList2">
+            <div class="orderCount">1</div>
+        </template>
+     </div>
+        <!-- 가격 -->
+        <div id="orderList3">가격
+        <template id ="temList3">
+        <div class="orderPrice">2000</div>
+        </template>
+        </div>
+        <!-- 총가격 -->
+        <div id="orderList4">총가격
+        <template id = "temList4">
+        <div class="totalPrice">11000</div>
+        </template>
+        </div>
+        </div>
 
-    <div class="orderBorder">
-        <ul class="orderMain"> 나시고랭
-            <li class="orderOpt">곱빼기</li>
-            <li class="orderOpt">고수추가</li>
-        </ul>
-    </div>
 
-    </div>
-    <!-- 수량 -->
-    <div class="orderList2" class = "box3">수량
+        <!-- 2-2. 가격 임시 템플릿 -->
+  
 
-    <div class="orderCount">1</div>
-    <div class="orderCount">1</div>
-
-    </div>
-
-    <!-- 가격 -->
-    <div class="orderList3">가격
-
-    <div class="orderPrice">2000</div>
-    <div class="orderPrice">9000</div>
-
-    </div>
-
-    <!-- 총가격 -->
-    <div class="orderList4">총가격
-
-    <div class="totalPrice">11000</div>
-    
-    </div>
-    
-    </div>
+            
 
     <!-- 3. Cal. -->
     <div id="Cal" class = "box5">Cal
@@ -152,6 +144,6 @@
     </div>
 
 </div>
-
+    <script src="javascript.js".js></script>
 </body>
 </html>
