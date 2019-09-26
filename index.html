@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="stylesheet" type="text/css" href="menu.css" />
     <link rel="stylesheet" type="text/css" href="cal.css" />
+    <link rel="stylesheet" type="text/css" href="price.css" />
     <link href="https://fonts.googleapis.com/css?family=Gugi|Roboto+Condensed&display=swap" rel="stylesheet">
 
 </head>
@@ -131,37 +132,42 @@
     <div id="idPrice" class = "box4">
         
         <!-- 주문내역 -->
-        <div id="orderList1" class = "priceStyle">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div id="orderList1" class = "priceStyle margin">
                주문내역
             <template id ="temList1">
                 <div class="orderMain">아메리카노</div>
             </template>
+            <template id ="temOpt1">
+                    <div class="optMain">샷추가(+1)</div>
+            </template>
         </div>
         <!-- 수량 -->
-        <div id="orderList2" class = "priceStyle">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                수량
+        <div id="orderList2" class = "priceStyle margin"> 
+                <div>수량</div>
             <template id = "temList2">
-                <div class="orderCount">1</div>
+                <div>
+                <span class="orderCount">1</span>
+                <button class = 'up1'>+</button>
+                <button class = 'down1'>-</button>
+                </div>
             </template>
         </div>
         <!-- 가격 -->
-        <div id="orderList3" class = "priceStyle">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;가격
+        <div id="orderList3" class = "priceStyle margin">
+               가격
             <template id ="temList3">
                 <div class="orderPrice">2000</div>
             </template>
         </div>
         <!-- 총가격 -->
-        <div id="orderList4">
+        <div id="orderList4"  class="margin">
             <template id = "temList4">
                 <div class="totalPrice"></div>
             </template>
         </div>
         <!-- 버튼 -->
         <div id="orderList5">
-            <button class = "xBtn">버튼</button>
+            <button class = "deleteBtn">Refresh!</button>
       
     </div>
 

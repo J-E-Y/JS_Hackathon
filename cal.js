@@ -50,7 +50,7 @@ function inputPrice() {
 
     if (sumPrice !== null ) {
         inputPrice.innerText
-        = `결제금액 ${sumPrice.innerText} 원`;
+        = `결제금액 ${sumPrice.innerText}`;
     } else {
     inputPrice.innerText = `메뉴를 입력해주세요!`;
     }

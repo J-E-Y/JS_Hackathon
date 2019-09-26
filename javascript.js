@@ -1,53 +1,66 @@
 
-
 // menuclick() 함수는
 // 메뉴 버튼이 클릭되면 price 화면에 함수들(메뉴 수량 가격 총가격) 을 산출한다. 
 
 function menuclick() {
     var menuPoint = document.querySelectorAll('.menuBtn');
     var menuName = document.querySelectorAll('.menuBtn');
-        for (let a=0; a<menuPoint.length; a++){
-            menuPoint[a].onclick = function() {
-                displayData = [];
-                var menuData = foodData.filter(function(value){
-                    return value['name'] === menuName[a].textContent;
-                })
-                
-                var filtered = accuData.filter(function(value){
-                    return value['name'] === menuName[a].textContent;
-                })
-                
-                accuData.push(menuData[0]);
-                displayData.push(menuData[0]);
-                renderMenuName();
-                renderMenuPrice();
-                renderMenuCount();
-                renderTotalPrice()            
-            }
+    for (let a=0; a<menuPoint.length; a++){
+        menuPoint[a].onclick = function() {
+            displayData = [];
+            var menuData = foodData.filter(function(value){
+                return value['name'] === menuName[a].textContent;
+            })
+            accuData.push(menuData[0]);
+            displayData.push(menuData[0]);
+            renderMenuName();
+            renderMenuPrice();
+            renderMenuCount();
+            renderTotalPrice();            
         }
     }
+}
 menuclick();
 
 
 
-// price 화면에 출력하기위한 함수들.
+// 메뉴 클릭시  
+// 아메리카노 수량:1 가격:1000원  총가격 :1000 이 화면에 출력된다
+// 동시에 옵션창이 화면에 출력된다.
+// 옵션창안에 체크박스버튼 / okay 버튼 있다.
+// 옵셥창에서 먼저 체크박스 클릭하면 
 
-// 1. 주문내역 
+// 1. optDataBev['bevOpt'] 값만 우선 새로운 배열에 저장
+// 2. optDataBev['bevPrice']값은  새로운 배열안에 저장
 
-// 화면에 보여지는 주문내역안에  template 사용해서 집어넣기위해 ID를 불러온다.
+//  오케이 버튼을 누르면 
+
+// 1. 'hot' 값이 아메리카노 밑에 추가된다.
+// 2. 가격에도 추가된다. 
+// 3. 총가격에도 추가된다. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// -------------------렌더링함수-----------------------------
 
 var targetName = document.querySelector('#orderList1');
 var templateName = document.querySelector('#temList1');
 
-
-// renderMenName() 함수는  
-// 메뉴 클릭시 displayData 배열안에 담긴객체를 
-// name의 값인 textContent(아메리카노 1000원) 내용만 뽑아 화면에 보여준다. 
-
-
 function renderMenuName() {
     for (let i=0; i<displayData.length; i++){
-        console.log(displayData);
         let newMenu = document.importNode(templateName.content, true);
         let menuUl = newMenu.querySelectorAll('.orderMain');
         menuUl[i].textContent = displayData[i]['name']
@@ -55,92 +68,111 @@ function renderMenuName() {
     }
 }
 
-
-
-// 2.가격
-
-// 화면에 보여지는 가격안에 template 을 사용해서 집어넣기위해 ID값을 가져온다. 
-
 var targetPrice = document.querySelector('#orderList3');
 var templatePrice = document.querySelector('#temList3');
-
-// renderMenPrice() 함수는
-// 메뉴 클릭시 displayData 배열에안에 담긴 객체를 
-// textContent (가격) 
-
 function renderMenuPrice() {
     for (let i=0; i<displayData.length; i++){
         let newMenu = document.importNode(templatePrice.content, true);
         let orderPrice1 = newMenu.querySelectorAll('.orderPrice');
-        orderPrice1[i].textContent = displayData[i]['price'];
+        orderPrice1[i].textContent = displayData[i]['price'] * displayData[i]['count'];
         targetPrice.appendChild(newMenu);
     }
 }
 
-
-
-// 취합파일
-
-
-// 3.수량
-
-
-// 화면에 보여지는 수량안에 template 사용해서 집어넣기 위해 ID 값을 불러온다. 
 var targetCount = document.querySelector('#orderList2');
 var templateCount = document.querySelector('#temList2');
-
-// rederMenuCount() 함수는
-// data 에 있는 [{count:1]] 에서 1 값을 가져와 함수가 실행될때마다 1을 화면에 출력해준다. 
-
 function renderMenuCount() {
-    for (let i=0; i<count.length; i++){
+    for (let i=0; i<displayData.length; i++){
         let newMenu = document.importNode(templateCount.content, true);
         let orderCount1 = newMenu.querySelectorAll('.orderCount');
-        orderCount1[i].textContent = count[i]['count'];
+        orderCount1[i].textContent = displayData[i]['count'];
         targetCount.appendChild(newMenu);
+        countUp2();
+        countDown2();
     }
 }
-
-
-// 사용자로부터 받은 값을 더하는 계산기
-
-// totalPrice() 함수는
-// 사용자로부터 받은 값들을 받아서 모두 더한값을 출력한다.  
 
 var newSum = [];
 function totalPrice() {
     for (let i=0; i<displayData.length; i++){
-        let sum = displayData[i]['price'] * count[0]['count']
+        let sum = displayData[i]['price'] * displayData[i]['count']
         newSum.push(sum);
-        console.log(newSum);
     }
-
     var total1 = newSum.reduce(function(accu, curr){
         return accu + curr;
     })
-
     return total1;
 }
 
-
-// 화면에 보여지는 총가격안에 template 사용해서 집어넣기 위해 ID 값을 불러온다. 
 var targetTotal = document.querySelector('#orderList4');
 var templateTotal = document.querySelector('#temList4');
 
-
-// 4. 총가격
-
-// renderTotalPrice() 함수는 
-// 화면에 총값을 출력해준다.
-
 function renderTotalPrice() {
-        targetTotal.innerHTML = ''; 
-        targetTotal.innerHTML = "<div class = 'textTotal'>총가격</div>"; //  html 에서 총가격이 사라지고 다시 남아있게 하기위해 
+        targetTotal.innerHTML = '';
         let newMenu = document.importNode(templateTotal.content, true);
-        let menuUl = newMenu.querySelector('.totalPrice');   // 쿼리셀렉올이 아니라 쿼리셀렉 
-        menuUl.textContent = totalPrice();
+        let menuUl = newMenu.querySelector('.totalPrice');
+        menuUl.textContent = `${totalPrice()} 원`;
         targetTotal.appendChild(newMenu);
 }
+
+
+// ------------------- up & down & clear ------------------
+function countUp2() {
+    let countUp = document.querySelectorAll('.up1');
+    for (let a=0; a<countUp.length; a++){
+    countUp[a].onclick = function() {
+            targetPrice.innerHTML = '가격';
+            targetName.innerHTML = '주문내역';
+            targetCount.innerHTML = '수량';
+            targetTotal.innerHTML = '총가격';
+            newSum = [];
+            displayData = [];
+            accuData[a]['count'] = accuData[a]['count'] + 1;
+            for (i=0; i<accuData.length; i++){
+                displayData = [];
+                displayData.push(accuData[i]);
+                renderMenuName();
+                renderMenuPrice();
+                renderMenuCount();
+                renderTotalPrice()                 
+            }
+
+        }
+    }
+    }
+
+    function countDown2() {
+        let countDown = document.querySelectorAll('.down1');
+        for (let a=0; a<countDown.length; a++){
+        countDown[a].onclick = function() {
+                targetPrice.innerHTML = '가격';
+                targetName.innerHTML = '주문내역';
+                targetCount.innerHTML = '수량';
+                targetTotal.innerHTML = '총가격';
+                newSum = [];
+                displayData = [];
+                accuData[a]['count'] = accuData[a]['count'] - 1;
+                for (i=0; i<accuData.length; i++){
+                    displayData = [];
+                    displayData.push(accuData[i]);
+                    renderMenuName();
+                    renderMenuPrice();
+                    renderMenuCount();
+                    renderTotalPrice()                 
+                }
+    
+            }
+        }
+    }
+
+    function clear() {
+        let deleteButton = document.querySelector('.deleteBtn');
+        deleteButton.onclick = function() {
+            location.reload();
+            menuclick();
+        }
+    }
+    clear();
 
 
 

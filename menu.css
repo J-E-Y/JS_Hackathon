@@ -116,12 +116,12 @@ list-style: none;
 }
 
 #nasi:hover {
-    background-image: url("나시고랭.jpg");     
+    background-image: url("nasi.jpg");     
     color: #4e1709;  
 }
 
 #mi:hover {
-    background-image: url("미고렝.jpg");      
+    background-image: url("migo.jpg");      
 }
 
 #satte:hover {
@@ -129,15 +129,15 @@ list-style: none;
 }
 
 #tira:hover {
-    background-image: url("티라미수.jpg");      
+    background-image: url("tira.jpg");      
 }
 
 #waf:hover {
-    background-image: url("와플.jpg");   
+    background-image: url("waf.jpg");   
     color: #4e1709;   
 }
 
 #ice:hover {
-    background-image: url("아이스크림.jpg");      
+    background-image: url("ice.jpg");      
     color: #4e1709;  
 }
