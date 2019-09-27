@@ -1,6 +1,8 @@
 
-// menuclick() 함수는
-// 메뉴 버튼이 클릭되면 price 화면에 함수들(메뉴 수량 가격 총가격) 을 산출한다. 
+// // menuclick() 함수는
+// // 메뉴 버튼이 클릭되면 price 화면에 함수들(메뉴 수량 가격 총가격) 을 산출한다. 
+
+
 
 function menuclick() {
     var menuPoint = document.querySelectorAll('.menuBtn');
@@ -24,6 +26,7 @@ menuclick();
 
 
 
+
 // 메뉴 클릭시  
 // 아메리카노 수량:1 가격:1000원  총가격 :1000 이 화면에 출력된다
 // 동시에 옵션창이 화면에 출력된다.
@@ -43,18 +46,31 @@ menuclick();
 
 
 
+var radios = document.getElementsByName('getOptId');
+//배열이두개가 생긴다. 
+
+for (var i = 0, length = radios.length; i < length; i++) {
+    if (radios[i].checked) {
+        // do whatever you want with the checked radio
+        alert(radios[i].value);
+
+        // only one radio can be logically checked, don't check the rest
+        break;
+    }
+}
+
+function submitForm() {
+
+    var genderS =  findSelection("getOptId");
+    alert(genderS);
+}
 
 
 
 
 
 
-
-
-
-
-
-// -------------------렌더링함수-----------------------------
+// // -------------------렌더링함수-----------------------------
 
 var targetName = document.querySelector('#orderList1');
 var templateName = document.querySelector('#temList1');
@@ -116,7 +132,12 @@ function renderTotalPrice() {
 }
 
 
-// ------------------- up & down & clear ------------------
+
+
+
+
+
+// // ------------------- up & down & clear ------------------
 function countUp2() {
     let countUp = document.querySelectorAll('.up1');
     for (let a=0; a<countUp.length; a++){
