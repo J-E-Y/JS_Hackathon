@@ -42,15 +42,13 @@ function inputFirst() {
 }
 
 
-
 // 3. input2 ( Price에서 넘어온 값)   // 0924 21:45 수정중
 function inputPrice() {
-    let sumPrice = document.querySelector(".totalPrice");
     let inputPrice = document.querySelector("#inputPrice");
-
-    if (sumPrice !== null ) {
+    if (totalResult !== [] ) {
         inputPrice.innerText
-        = `결제금액 ${sumPrice.innerText}`;
+        = `결제금액 ${totalResult[0]}`;
+        totalResult = [];
     } else {
     inputPrice.innerText = `메뉴를 입력해주세요!`;
     }
@@ -64,8 +62,7 @@ function paymentBtnClicked() {
         document.querySelector(".cash").classList.remove("off")
         document.querySelector(".cash").classList.remove("cashClicked")
     },1000)
-    document.querySelector("#inputChange").innerText = '';
-   
+    document.querySelector("#inputChange").innerText = '';   
 }
 
 

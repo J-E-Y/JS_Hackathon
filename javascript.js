@@ -2,37 +2,37 @@
 // // menuclick() 함수는
 // // 메뉴 버튼이 클릭되면 price 화면에 함수들(메뉴 수량 가격 총가격) 을 산출한다. 
 
-// function menuclick() {
-//     var menuPoint = document.querySelectorAll('.menuBtn');
-//     var menuName = document.querySelectorAll('.menuBtn');
-//     for (let a=0; a<menuPoint.length; a++){
-//         menuPoint[a].onclick = function() {
-//             displayData = [];
-//             foodData[a]['clickCount'] = foodData[a]['clickCount'] + 1;
-//             if (foodData[a]['clickCount'] > 1){
-//                 for(n=0; n<accuData.length; n++){
-//                     if (accuData[n]['name'] === menuName[a].textContent){
-//                         accuData[n]['count']++;
-//                         filterRender();
-//                     }
-//                 }
-//             }
-//             else {
-//                 var menuData = foodData.filter(function(value){
-//                     return value['name'] === menuName[a].textContent;
-//                 })
-//                 accuData.push(menuData[0]);
-//                 displayData.push(menuData[0]);
-//                 renderMenuName();
-//                 renderMenuPrice();
-//                 renderMenuCount();
-//                 renderTotalPrice(); 
-//             }
+function menuclick() {
+    let menuPoint = document.querySelectorAll('.menuBtnDessert');
+    let menuName = document.querySelectorAll('.menuBtnDessert');
+    for (let a=0; a<menuPoint.length; a++){
+        menuPoint[a].onclick = function() {
+            displayData = [];
+            dessertData[a]['clickCount'] = dessertData[a]['clickCount'] + 1;
+            if (dessertData[a]['clickCount'] > 1){
+                for(n=0; n<accuData.length; n++){
+                    if (accuData[n]['name'] === menuName[a].textContent){
+                        accuData[n]['count']++;
+                        filterRender();
+                    }
+                }
+            }
+            else {
+                let menuData = dessertData.filter(function(value){
+                    return value['name'] === menuName[a].textContent;
+                })
+                accuData.push(menuData[0]);
+                displayData.push(menuData[0]);
+                renderMenuName();
+                renderMenuPrice();
+                renderMenuCount();
+                renderTotalPrice(); 
+            }
            
-//         }
-//     }
-// }
-// menuclick();
+        }
+    }
+}
+menuclick();
 
 // // -------------------렌더링함수-----------------------------
 
@@ -42,7 +42,7 @@ var templateName1 = document.querySelector('#temList1-1');
 
 function renderMenuName() {
     for (let i=0; i<displayData.length; i++){
-        let newMenu = document.importNode(templateName.content, true); // 
+        let newMenu = document.importNode(templateName.content, true);
         let menuUl = newMenu.querySelectorAll('.orderMain');
         menuUl[i].textContent = displayData[i]['name']
         targetName.appendChild(newMenu);
@@ -51,7 +51,7 @@ function renderMenuName() {
 
 function renderOptName() {
     for (let j = 0 ; j < displayData2.length ; j++ ) {
-        
+        console.log(displayData2);
         // div 을 1개 추가 하고 임포트노드한다
         let createND = document.createElement("div");
         createND.classList.add("orderOpt")
@@ -69,7 +69,7 @@ function renderOptName() {
 var targetPrice = document.querySelector('#orderList3');
 var templatePrice = document.querySelector('#temList3');
 let allSum = [];
-
+var optSum = 0;
 function renderMenuPrice() {
     for (let i=0; i<displayData.length; i++){
         let newMenu = document.importNode(templatePrice.content, true);
@@ -110,9 +110,15 @@ function renderMenuCount() {
 
 
 function totalPrice() {
+    // bevCount = 0, fooCount = 0, desCount = 0;
+    // accuData를 반복문을 통해 돌린다. 그룹에 속하는 count를 1씩 증가시킨다.
+    // 만약에 세 카운트가 1 이상이라면 전체 가격에서 10%를 discount;
+    // 아니면 그냥 실행  
     var total1 = allSum.reduce(function(accu, curr){
         return accu + curr;
     })
+    totalResult.push(total1);
+    inputPrice();
     return total1;
 }
 
@@ -153,16 +159,19 @@ function countUp2() {
             targetName.innerHTML = '주문내역';
             targetCount.innerHTML = '수량';
             targetTotal.innerHTML = '총가격';
-            newSum = [];
+            allSum = [];
             displayData = [];
             accuData[a]['count'] = accuData[a]['count'] + 1;
             for (i=0; i<accuData.length; i++){
                 displayData = [];
                 displayData.push(accuData[i]);
+                displayData2 = [];
+                displayData2.push(accuData2[i]);
                 renderMenuName();
                 renderMenuPrice();
                 renderMenuCount();
-                renderTotalPrice()                 
+                renderTotalPrice(); 
+                renderOptName();
             }
 
         }
@@ -195,7 +204,7 @@ function countUp2() {
                     renderMenuName();
                     renderMenuPrice();
                     renderMenuCount();
-                    renderTotalPrice()
+                    renderTotalPrice();
                     }                 
                 }
     
@@ -211,7 +220,6 @@ function countUp2() {
         }
     }
     clear();
-
 
 
 
