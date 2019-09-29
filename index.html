@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="menu.css" />
     <link rel="stylesheet" type="text/css" href="cal.css" />
     <link rel="stylesheet" type="text/css" href="price.css" />
+    <link rel="stylesheet" type="text/css" href="opt.css" />
     <link href="https://fonts.googleapis.com/css?family=Gugi|Roboto+Condensed&display=swap" rel="stylesheet">
 
 </head>
@@ -23,7 +24,7 @@
     <div id="idMenu" class = "box1"> 
 
     <div class = middleTitle>
-        Menu
+    Menu
     </div>
 
     <ul class="menuTitle Bev">
@@ -31,19 +32,19 @@
 
         <li class="menuContent">
             <div>
-                <button class="menuBtn" id="americano">AMERICANO 1000원</button>
+                <button class="menuBtn clickBev" id="americano">AMERICANO 1000원</button>
             </div>
         </li>
 
         <li class="menuContent">
             <div>
-                <button class="menuBtn" id="latte">LATTE 2500원</button>
+                <button class="menuBtn clickBev" id="latte">LATTE 2500원</button>
             </div>  
         </li>
 
         <li class="menuContent">
             <div>
-                <button class="menuBtn" id="beer">BEER 3000원</button>
+                <button class="menuBtn clickBev" id="beer">BEER 3000원</button>
             </div>  
         </li>
     </ul>
@@ -53,17 +54,17 @@
 
         <li class="menuContent">
             <div>
-                <button class="menuBtn" id="nasi">나시고랭 8000원</button>
+                <button class="menuBtn clickFood" id="nasi">나시고랭 8000원</button>
             </div> 
         </li>
         <li class="menuContent">
             <div>
-                <button class="menuBtn" id="mi">미고랭 8000원</button>
+                <button class="menuBtn clickFood" id="mi">미고랭 8000원</button>
             </div> 
         </li>
         <li class="menuContent">
             <div>
-                <button class="menuBtn" id="satte">사떼 5000원</button>
+                <button class="menuBtn clickFood" id="satte">사떼 5000원</button>
             </div> 
         </li>
     </ul>
@@ -95,34 +96,44 @@
     </div>
 
     <!-- 1-2. Opt. -->
-    <div id="idOption" class = "box3">Option
-    <ol class="optMenu"> Beverage
+    <div id="idOption" class = "box3-1">
+    <ol class="optMenu">
+        <div class="optTitle">Beverage Option</div>
         <li class="optName">
             Hot +0
-            <input class="optCheck" type="checkbox">
+            <input class="optCheck" id="hot" type="checkbox">
             Cold +500
-            <input class="optCheck" type="checkbox">
+            <input class="optCheck" id="cold" type="checkbox">
         </li>
         <li class="optName">
             샷추가(+1) +500
-            <input class="optCheck" type="checkbox">
+            <input class="optCheck" id="+1" type="checkbox">
             샷추가(+2) +1000
-            <input class="optCheck" type="checkbox">
+            <input class="optCheck" id="+2" type="checkbox">
         </li>
         <li class="optName">
             맥주주문시 감자튀김 +3000
-            <input class="optCheck" type="checkbox">
+            <input class="optCheck" id="potato" type="checkbox">
+        </li>
+        <li class="optName">
+            <input class="optCheck" id="OK" type="button" value="OK!">
         </li>
     </ol>
-    
-    <ol class="optMenu"> Food
+    </div>
+
+    <div id="idOption" class = "box3-2">
+    <ol class="optMenu">
+        <div class="optTitle">Food Option</div>
         <li class="optName">
             곱빼기 +1000
-            <input class="optCheck" type="checkbox">
+            <input class="optCheck X2" type="checkbox">
         </li>
         <li class="optName">
             고수추가 +0
-            <input class="optCheck" type="checkbox">
+            <input class="optCheck Gosu" type="checkbox">
+        </li>
+        <li class="optName">
+            <input class="optCheck" id = "OK" type="button" value="OK!">
         </li>
     </ol>
     </div>
@@ -137,9 +148,13 @@
             <template id ="temList1">
                 <div class="orderMain">아메리카노</div>
             </template>
+            <template id="temList1-1">
+                <div class="optHouse"></div>
+            </template> 
         </div>
-        <!-- 수량 -->
-        <div id="orderList2" class = "priceStyle margin"> 
+
+        <!-- 수량 --> 
+        <div id="orderList2" class = "priceStyle margin">   
                 <div>수량</div>
             <template id = "temList2">
                 <div>
@@ -182,7 +197,6 @@
     </div>
 
     <!-- 4. 현금계산시 -->
-
     <div class="cash">
             cash
             <div class="cashContainer">
@@ -253,11 +267,10 @@
             </div>
         </div>
     
-        <!-- 5. 카드계산시 -->
-    
-        <div class="card">
-            <span class="cardName">Insert Your Card!</span>
-        </div>
+    <!-- 5. 카드계산시 -->
+    <div class="card">
+        <span class="cardName">Insert Your Card!</span>
+    </div>
 
 </div>
 
@@ -266,5 +279,6 @@
     <script src="POSDATA.js".js></script>
     <script src="button.js"></script>
     <script src="cal.js"></script>
+    <script src="opt.js"></script>
 </body>
 </html>

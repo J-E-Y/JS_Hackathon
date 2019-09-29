@@ -35,4 +35,6 @@ li.optName {
 
 }
 
-
+.optOff {
+    display: none;
+}

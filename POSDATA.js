@@ -11,6 +11,21 @@ let foodData =  [
     {name: '아이스크림 3000원', price: 2500, count: 1, clickCount: 0}
 ];
 
+let optDataBev = [
+    {name: "hot", price: 0, count: 1},
+    {name: "cold", price: 500, count: 1},
+    {name: "+1", price: 500, count: 1},
+    {name: "+2", price: 1000, count: 1},
+    {name: "potato", price: 3000, count: 1}
+]
+
+let optDataFood = [
+    {name: "X2", price: 1000, count: 1},
+    {name: "Gosu", price: 0, count: 1}
+]
+
 let accuData = [];
+let accuData2 = [];
 let displayData = [];
+let displayData2 = [];
 // let count = [{count: 1}];
