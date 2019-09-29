@@ -1,8 +1,6 @@
 
-// // menuclick() 함수는
-// // 메뉴 버튼이 클릭되면 price 화면에 함수들(메뉴 수량 가격 총가격) 을 산출한다. 
-
-
+// menuclick() 함수는
+// 메뉴 버튼이 클릭되면 price 화면에 함수들(메뉴 수량 가격 총가격) 을 산출한다. 
 
 function menuclick() {
     var menuPoint = document.querySelectorAll('.menuBtn');
@@ -10,67 +8,33 @@ function menuclick() {
     for (let a=0; a<menuPoint.length; a++){
         menuPoint[a].onclick = function() {
             displayData = [];
-            var menuData = foodData.filter(function(value){
-                return value['name'] === menuName[a].textContent;
-            })
-            accuData.push(menuData[0]);
-            displayData.push(menuData[0]);
-            renderMenuName();
-            renderMenuPrice();
-            renderMenuCount();
-            renderTotalPrice();            
+            foodData[a]['clickCount'] = foodData[a]['clickCount'] + 1;
+            if (foodData[a]['clickCount'] > 1){
+                for(n=0; n<accuData.length; n++){
+                    if (accuData[n]['name'] === menuName[a].textContent){
+                        accuData[n]['count']++;
+                        filterRender();
+                    }
+                }
+            }
+            else {
+                var menuData = foodData.filter(function(value){
+                    return value['name'] === menuName[a].textContent;
+                })
+                accuData.push(menuData[0]);
+                displayData.push(menuData[0]);
+                renderMenuName();
+                renderMenuPrice();
+                renderMenuCount();
+                renderTotalPrice(); 
+            }
+           
         }
     }
 }
 menuclick();
 
-
-
-
-// 메뉴 클릭시  
-// 아메리카노 수량:1 가격:1000원  총가격 :1000 이 화면에 출력된다
-// 동시에 옵션창이 화면에 출력된다.
-// 옵션창안에 체크박스버튼 / okay 버튼 있다.
-// 옵셥창에서 먼저 체크박스 클릭하면 
-
-// 1. optDataBev['bevOpt'] 값만 우선 새로운 배열에 저장
-// 2. optDataBev['bevPrice']값은  새로운 배열안에 저장
-
-//  오케이 버튼을 누르면 
-
-// 1. 'hot' 값이 아메리카노 밑에 추가된다.
-// 2. 가격에도 추가된다. 
-// 3. 총가격에도 추가된다. 
-
-
-
-
-
-var radios = document.getElementsByName('getOptId');
-//배열이두개가 생긴다. 
-
-for (var i = 0, length = radios.length; i < length; i++) {
-    if (radios[i].checked) {
-        // do whatever you want with the checked radio
-        alert(radios[i].value);
-
-        // only one radio can be logically checked, don't check the rest
-        break;
-    }
-}
-
-function submitForm() {
-
-    var genderS =  findSelection("getOptId");
-    alert(genderS);
-}
-
-
-
-
-
-
-// // -------------------렌더링함수-----------------------------
+// -------------------렌더링함수-----------------------------
 
 var targetName = document.querySelector('#orderList1');
 var templateName = document.querySelector('#temList1');
@@ -131,13 +95,24 @@ function renderTotalPrice() {
         targetTotal.appendChild(newMenu);
 }
 
-
-
-
-
-
-
-// // ------------------- up & down & clear ------------------
+function filterRender() {
+    targetPrice.innerHTML = '가격';
+    targetName.innerHTML = '주문내역';
+    targetCount.innerHTML = '수량';
+    targetTotal.innerHTML = '총가격';
+    newSum = [];
+    displayData = [];
+     for(i=0; i<accuData.length; i++){
+        displayData = [];
+        displayData.push(accuData[i]);
+        renderMenuName();
+        renderMenuPrice();
+        renderMenuCount();
+        renderTotalPrice();           
+     }
+ }   
+ 
+// ------------------- up & down & clear ------------------
 function countUp2() {
     let countUp = document.querySelectorAll('.up1');
     for (let a=0; a<countUp.length; a++){
@@ -162,6 +137,7 @@ function countUp2() {
     }
     }
 
+
     function countDown2() {
         let countDown = document.querySelectorAll('.down1');
         for (let a=0; a<countDown.length; a++){
@@ -174,12 +150,21 @@ function countUp2() {
                 displayData = [];
                 accuData[a]['count'] = accuData[a]['count'] - 1;
                 for (i=0; i<accuData.length; i++){
+                    if (accuData[i]['count']<=0){
+                        accuData[i]['clickCount'] = 0;
+                        accuData[i]['count'] = 1; // 기존에 기록되었던 count가 다시 나타나는 것을 방지하기 위해 count값을 초기화함
+                        accuData.splice(i,1);
+                        filterRender();
+                        menuclick();
+                    }
+                    else{
                     displayData = [];
                     displayData.push(accuData[i]);
                     renderMenuName();
                     renderMenuPrice();
                     renderMenuCount();
-                    renderTotalPrice()                 
+                    renderTotalPrice()
+                    }                 
                 }
     
             }

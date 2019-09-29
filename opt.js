@@ -1,26 +1,25 @@
-
-// function menuclick2() {
-//     var bevClick = document.querySelectorAll('.clickBev');
-//     for (let a=0; a<bevClick.length; a++){
-//         bevClick[a].onclick = function() {
-//             displayData2 = [];
-//             var menuData2 = foodData.filter(function(value){
-//                 return value['name'] === bevClick[a].textContent;
-//             })
+function menuclick2() {
+    var bevClick = document.querySelectorAll('.clickBev');
+    for (let a=0; a<bevClick.length; a++){
+        bevClick[a].onclick = function() {
+            displayData2 = [];
+            var menuData2 = foodData.filter(function(value){
+                return value['name'] === bevClick[a].textContent;
+            })
            
-//             // 체크박스에 해당된 것이 optDataBev에서 name과 같다면 해당 el 추가
-//             accuData2.push(menuData2[0]); 
-//             //accData2 =  {name: 클릭한메뉴 , price:클릭한 가격, count:1 }
+            // 체크박스에 해당된 것이 optDataBev에서 name과 같다면 해당 el 추가
+            accuData2.push(menuData2[0]); 
+            //accData2 =  {name: 클릭한메뉴 , price:클릭한 가격, count:1 }
             
-//             displayData2.push(menuData2[0]);      
-//             // displayData2 = {name:클릭한메뉴 , price:클릭한 가격, count:1 }
+            displayData2.push(menuData2[0]);      
+            // displayData2 = {name:클릭한메뉴 , price:클릭한 가격, count:1 }
             
-//         }
-//     }
+        }
+    }
     
-// }
+}
 
-// menuclick2();
+menuclick2();
 
 
 // 메뉴클릭 가격을 배열에 1차저장
@@ -51,9 +50,24 @@ function inIt2() {
     clickBevArr2.forEach(function(val){
         val.addEventListener("click", clickedMenu2);
     });
-
-
 }
 
 inIt2();
 
+
+
+
+function submitFun() {
+		
+
+    var checks = document.querySelectorAll('.optCheck')
+    var optName = document.querySelectorAll('.optName')
+    for (let i = 0; i < checks.length; i++ ){
+
+        if (checks[i].checked === true ) {
+          accuData2.push(optDataBev[i]);
+          displayData2.push(optDataBev[i]);
+        }
+     }
+     renderMenuName(); 
+}
